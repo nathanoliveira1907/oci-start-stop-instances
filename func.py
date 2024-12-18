@@ -22,13 +22,13 @@ def stop_instances(compartment_id, tag_key, tag_value):
 
 if __name__ == "__main__":
     # Defina o OCID do compartment e as tags que deseja filtrar
-    compartment_id = "ocid1.tenancy.oc1..aaaaaaaaaala4mpalltuuugidaazn5zjhnqemgrqosnumf2kee6qzc2mzqlq"  # Substitua pelo OCID do seu compartment
+    compartment_id = "ocid1.compartment.oc1..aaaaaaaaf6qgwtv2obytwlf5njk4jfsxceesrrytuwsh7qxfg7blwud42tmq"  # Substitua pelo OCID do seu compartment
     tag_key = "Schedule"        # Chave da tag que está procurando
     tag_value = "StartStop"         # Valor da tag para filtrar as instâncias
 
     # Agendar as funções
     schedule.every().day.at("08:00").do(start_instances, compartment_id, tag_key, tag_value)
-    schedule.every().day.at("19:00").do(stop_instances, compartment_id, tag_key, tag_value)
+    schedule.every().day.at("20:00").do(stop_instances, compartment_id, tag_key, tag_value)
 
     print("Agendamentos definidos. O script está rodando...")
 
